@@ -33,7 +33,7 @@ const Login = () => {
                         className="w-full rounded-full py-3 px-8 ring-0 focus:outline-none border border-gray-700"
                     />
                     <button
-                        className="btn duration-300 bg-white hover:text-white hover:bg-primary border-2 border-primary mt-5 block mx-auto"
+                        className="btn mt-5 block mx-auto"
                     >
                         Log in
                     </button>

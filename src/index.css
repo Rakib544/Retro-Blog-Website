@@ -4,5 +4,5 @@
 
 
 .btn{
-    @apply rounded-full py-3 px-6 uppercase text-xs font-bold cursor-pointer tracking-wider;
+    @apply rounded-full uppercase text-xs font-bold px-4 py-3 duration-300 bg-white hover:text-white hover:bg-primary border-2 border-primary;
 }

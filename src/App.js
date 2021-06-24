@@ -1,16 +1,25 @@
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+
 function App() {
   return (
-    <div>
-      {/* <button 
-        className="btn duration-300 bg-white hover:text-white hover:bg-primary border-2 border-primary"
-      >
-        Log in
-      </button> */}
-      {/* <Login /> */}
-      <Register />
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+            <Home />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/register">
+          <Register />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
