@@ -1,4 +1,5 @@
 import Login from './pages/Login';
+import Register from './pages/Register';
 function App() {
   return (
     <div>
@@ -7,7 +8,8 @@ function App() {
       >
         Log in
       </button> */}
-      <Login />
+      {/* <Login /> */}
+      <Register />
     </div>
   );
 }
