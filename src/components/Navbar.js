@@ -1,13 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Logout } from '../context/Actions';
 import { Context } from '../context/Context';
 
 const Navbar = () => {
     const [showDropdown, setShowDropDown] = useState(false)
     const { user, dispatch } = useContext(Context);
-
-    console.log(user)
 
     const handleLogOut = () => {
         dispatch({type: 'LOGOUT'})
@@ -27,16 +24,13 @@ const Navbar = () => {
                 <Link to="/" className="mr-4 my-2">
                     Home
                 </Link>
-                {user.isAdmin
+                {user?.isAdmin
                     ? <React.Fragment>
                         <Link to="/addBlog" className="mr-4 my-2">
                             Write Blog
                         </Link>
                         <Link to="/" className="mr-4 my-2">
                             Logout
-                        </Link>
-                        <Link to="/" className="mr-4 my-2">
-                            Manage Blog
                         </Link>
                         <Link to="/addAdmin" className="mr-4 my-2" onClick={handleLogOut} >
                             Add Admin

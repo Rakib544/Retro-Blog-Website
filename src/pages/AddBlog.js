@@ -41,6 +41,7 @@ const AddBlog = () => {
                     className="px-2 md:px-10"
                     onSubmit={handleSubmit(onSubmit)}
                 >
+                    {photo && <img src={photo} alt="uploadedPhoto" className="w-full h-80 mt-8 mb-2 object-cover"/>}
                     <div className="flex items-center">
                         <label htmlFor="fileInput" className="p-2 rounded-full border-2 cursor-pointer border-primary">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
