@@ -1,32 +1,35 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Context } from '../context/Context';
 
 const AddBlog = () => {
     const { register, handleSubmit } = useForm();
-    const [imageURL, setImageURL] = useState(null)
+    const [photo, setPhoto] = useState(null)
+    const { user } = useContext(Context)
 
     const handleImageUpload = e => {
         const imageData = new FormData();
         imageData.set('key', 'd17139582dad6f2a6f60bbc19e0dbd5e');
         imageData.append('image', e.target.files[0]);
 
-        fetch('https://api.imgbb.com/1/upload', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(imageData)
-        })
-            .then(res => setImageURL(res.data.data.display_url))
+        axios.post('https://api.imgbb.com/1/upload', imageData)
+            .then(res => setPhoto(res.data.data.display_url))
             .catch(err => console.log(err))
     }
 
     const onSubmit = data => {
-        if (imageURL !== null) {
-            let productData = { imageURL, ...data }
-            fetch('http://localhost:5000/addBlog', {
+        if (photo !== null) {
+            const email = user.email;
+            const productData = { photo, ...data, email };
+
+            fetch('http://localhost:5000/api/posts', {
                 method: "POST",
                 headers: { "Content-type": 'application/json' },
                 body: JSON.stringify(productData)
             })
+            .then(res => res.json())
+            .then(data => console.log(data))
         }
     };
 
@@ -53,12 +56,12 @@ const AddBlog = () => {
                             onChange={handleImageUpload}
                         />
                         <input
-                        type="text"
-                        placeholder="Title"
-                        name="title"
-                        ref={register({ required: true })}
-                        className="w-full py-3 px-2 text-3xl ring-0 focus:outline-none border-0"
-                    />
+                            type="text"
+                            placeholder="Title"
+                            name="title"
+                            ref={register({ required: true })}
+                            className="w-full py-3 px-2 text-3xl ring-0 focus:outline-none border-0"
+                        />
                     </div>
                     <textarea
                         type="text"
