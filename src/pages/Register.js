@@ -1,8 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router';
 
 const Register = () => {
-    const { register, handleSubmit, error } = useForm();
+    const { register, handleSubmit } = useForm();
+    const history = useHistory();
 
     const onSubmit = data => {
         fetch('http://localhost:5000/api/auth/register', {
@@ -11,7 +13,7 @@ const Register = () => {
             body: JSON.stringify(data)
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => history.push('/login'))
     };
     return (
         <React.Fragment>
