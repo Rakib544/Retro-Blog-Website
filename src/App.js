@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import AddAdmin from './pages/AddAdmin';
 import AddBlog from './pages/AddBlog';
+import SingleBlog from './pages/SingleBlog';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/addBlog">
           <AddBlog />
+        </Route>
+        <Route path="/blog/:id">
+          <SingleBlog />
         </Route>
       </Switch>
     </BrowserRouter>
