@@ -15,19 +15,19 @@ const Navbar = () => {
                 </div>
             </div>
             <div className={`mt-6 ${showDropdown ? 'flex flex-col' : 'hidden'} md:block`}>
-                <Link to="/" className="btn mr-2 my-2">
+                <Link to="/" className="mr-4 my-2">
                     Home
                 </Link>
-                <Link to="/" className="btn mr-2 my-2">
+                <Link to="/" className="mr-4 my-2">
                     Write Blog
                 </Link>
-                <Link to="/" className="btn mr-2 my-2">
+                <Link to="/" className="mr-4 my-2">
                     Logout
                 </Link>
-                <Link to="/login" className="btn mr-2 my-2">
+                <Link to="/login" className="mr-4 my-2">
                     Log in
                 </Link>
-                <Link to="/" className="btn mr-2 my-2">
+                <Link to="/" className="mr-4 my-2">
                     Manage Blog
                 </Link>
             </div>

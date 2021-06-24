@@ -3,7 +3,16 @@ import { useForm } from 'react-hook-form';
 
 const Login = () => {
     const { register, handleSubmit, error } = useForm();
-    const onSubmit = data => console.log(data);
+    
+    const onSubmit = data => {
+        fetch('http://localhost:5000/api/auth/login', {
+            method: 'POST',
+            headers:{'content-type':"application/json"},
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+    };
     return (
         <React.Fragment>
             <div className="w-full md:w-9/12 lg:w-1/2 mx-auto">
