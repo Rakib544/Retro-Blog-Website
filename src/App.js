@@ -1,7 +1,7 @@
 function App() {
   return (
     <div>
-      <h2>Hello I am now working on my retro blog project</h2>
+      <button className="btn duration-700 bg-white hover:text-white hover:bg-primary border-2 border-primary">Log in</button>
     </div>
   );
 }
