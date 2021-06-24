@@ -3,6 +3,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import AddAdmin from './pages/AddAdmin';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         </Route>
         <Route path="/register">
           <Register />
+        </Route>
+        <Route path="/addAdmin">
+          <AddAdmin />
         </Route>
       </Switch>
     </BrowserRouter>
