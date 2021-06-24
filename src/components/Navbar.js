@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Logout } from '../context/Actions';
+import { Context } from '../context/Context';
 
 const Navbar = () => {
     const [showDropdown, setShowDropDown] = useState(false)
+    const { user, dispatch } = useContext(Context);
+
+    console.log(user)
+
+    const handleLogOut = () => {
+        dispatch({type: 'LOGOUT'})
+    }
 
     return (
         <nav className="md:col-span-1 md:flex md:justify-between">
@@ -18,20 +27,27 @@ const Navbar = () => {
                 <Link to="/" className="mr-4 my-2">
                     Home
                 </Link>
-                <Link to="/" className="mr-4 my-2">
-                    Write Blog
-                </Link>
-                <Link to="/" className="mr-4 my-2">
-                    Logout
-                </Link>
-                <Link to="/login" className="mr-4 my-2">
-                    Log in
-                </Link>
-                <Link to="/" className="mr-4 my-2">
-                    Manage Blog
-                </Link>
+                {user.isAdmin
+                    ? <React.Fragment>
+                        <Link to="/addBlog" className="mr-4 my-2">
+                            Write Blog
+                        </Link>
+                        <Link to="/" className="mr-4 my-2">
+                            Logout
+                        </Link>
+                        <Link to="/" className="mr-4 my-2">
+                            Manage Blog
+                        </Link>
+                        <Link to="/addAdmin" className="mr-4 my-2" onClick={handleLogOut} >
+                            Add Admin
+                        </Link>
+                    </React.Fragment>
+                    : <Link to="/login" className="my-2">
+                        Log in
+                    </Link>
+                }
             </div>
-        </nav>
+        </nav >
 
     );
 };

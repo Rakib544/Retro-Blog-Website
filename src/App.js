@@ -4,6 +4,7 @@ import Register from './pages/Register';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import AddAdmin from './pages/AddAdmin';
+import AddBlog from './pages/AddBlog';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route path="/addAdmin">
           <AddAdmin />
+        </Route>
+        <Route path="/addBlog">
+          <AddBlog />
         </Route>
       </Switch>
     </BrowserRouter>
