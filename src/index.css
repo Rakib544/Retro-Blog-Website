@@ -8,3 +8,9 @@
 .btn{
     @apply rounded-full uppercase text-xs font-bold px-4 py-3 duration-300 text-white hover:text-gray-800 bg-primary hover:bg-white border-2 border-primary;
 }
+
+@layer base {
+    body {
+        @apply bg-[#F8F9FA] text-gray-600
+    }
+}
