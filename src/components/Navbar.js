@@ -26,17 +26,17 @@ const Navbar = () => {
                 </Link>
                 {user?.isAdmin
                     ? <React.Fragment>
-                        <Link to="/addBlog" className="mr-4 my-2">
+                        <Link to="/addBlog" className="mx-4 my-2">
                             Write Blog
                         </Link>
-                        <Link to="/" className="mr-4 my-2">
+                        <Link to="/" className="mx-4 my-2">
                             Logout
                         </Link>
-                        <Link to="/addAdmin" className="mr-4 my-2" onClick={handleLogOut} >
+                        <Link to="/addAdmin" className="mx-4 my-2" onClick={handleLogOut} >
                             Add Admin
                         </Link>
                     </React.Fragment>
-                    : <Link to="/login" className="my-2">
+                    : <Link to="/login" className=" ml-4 my-2">
                         Log in
                     </Link>
                 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Link} from 'react-router-dom'
+import Card from '../components/Card';
 
 const Home = () => {
     const [posts, setPosts] = useState([])
@@ -10,9 +10,9 @@ const Home = () => {
             .then(data => setPosts(data))
     }, [])
     return (
-        <div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-8 my-10 h-auto">
             {
-                posts?.map(post => <Link to={`/blog/${post._id}`} key={post._id} className="block">{post.title}</Link>)
+                posts?.map(post => <Card key={post._id} post={post}/>)
             }
         </div>
     );
