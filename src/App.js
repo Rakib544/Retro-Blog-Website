@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import AddAdmin from './pages/AddAdmin';
 import AddBlog from './pages/AddBlog';
 import SingleBlog from './pages/SingleBlog';
+import ManageBlog from './pages/ManageBlog';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route path="/addBlog">
           <AddBlog />
+        </Route>
+        <Route path="/manageBlog">
+          <ManageBlog />
         </Route>
         <Route path="/blog/:id">
           <SingleBlog />

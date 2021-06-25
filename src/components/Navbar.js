@@ -21,22 +21,25 @@ const Navbar = () => {
                 </div>
             </div>
             <div className={`mt-6 ${showDropdown ? 'flex flex-col' : 'hidden'} md:block`}>
-                <Link to="/" className="mr-4 my-2">
+                <Link to="/" className="mx-4 my-2 uppercase text-xs font-bold">
                     Home
                 </Link>
                 {user?.isAdmin
                     ? <React.Fragment>
-                        <Link to="/addBlog" className="mx-4 my-2">
+                        <Link to="/addBlog" className="mx-4 my-2 uppercase text-xs font-bold">
                             Write Blog
                         </Link>
-                        <Link to="/" className="mx-4 my-2">
+                        <Link to="/" className="mx-4 my-2 uppercase text-xs font-bold" onClick={handleLogOut}>
                             Logout
                         </Link>
-                        <Link to="/addAdmin" className="mx-4 my-2" onClick={handleLogOut} >
+                        <Link to="/addAdmin" className="mx-4 my-2 uppercase text-xs font-bold">
                             Add Admin
                         </Link>
+                        <Link to="/addAdmin" className="mx-4 my-2 uppercase text-xs font-bold">
+                            Manage Blog
+                        </Link>
                     </React.Fragment>
-                    : <Link to="/login" className=" ml-4 my-2">
+                    : <Link to="/login" className=" ml-4 my-2 uppercase text-xs font-bold">
                         Log in
                     </Link>
                 }
