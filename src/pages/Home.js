@@ -6,7 +6,7 @@ const Home = () => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/posts/')
+        fetch('https://limitless-tundra-48536.herokuapp.com/api/posts/')
             .then(res => res.json())
             .then(data => setPosts(data))
     }, [])

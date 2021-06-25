@@ -3,7 +3,7 @@ import React from 'react';
 const SingleList = ({ post, setNumber, num}) => {
 
     const handleDelete = () => {
-        fetch(`http://localhost:5000/api/posts/${post._id}`, {
+        fetch(`https://limitless-tundra-48536.herokuapp.com/api/posts/${post._id}`, {
             method: 'DELETE',
             headers: {'content-type':'application/json'},
             body: JSON.stringify()

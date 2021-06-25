@@ -7,7 +7,7 @@ const Register = () => {
     const history = useHistory();
 
     const onSubmit = data => {
-        fetch('http://localhost:5000/api/auth/register', {
+        fetch('https://limitless-tundra-48536.herokuapp.com/api/auth/register', {
             method: 'POST',
             headers:{'content-type':"application/json"},
             body: JSON.stringify(data)

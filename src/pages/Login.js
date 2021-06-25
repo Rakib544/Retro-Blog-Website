@@ -9,7 +9,7 @@ const Login = () => {
     const onSubmit = data => {
         dispatch({ type: "LOGIN_START" });
         try {
-            fetch('http://localhost:5000/api/auth/login', {
+            fetch('https://limitless-tundra-48536.herokuapp.com/api/auth/login', {
                 method: 'POST',
                 headers: { 'content-type': "application/json" },
                 body: JSON.stringify(data)

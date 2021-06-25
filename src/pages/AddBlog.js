@@ -21,9 +21,10 @@ const AddBlog = () => {
     const onSubmit = data => {
         if (photo !== null) {
             const email = user.email;
-            const productData = { photo, ...data, email };
+            const date = new Date().toDateString();
+            const productData = { photo, ...data, email, date};
 
-            fetch('http://localhost:5000/api/posts', {
+            fetch('https://limitless-tundra-48536.herokuapp.com/api/posts', {
                 method: "POST",
                 headers: { "Content-type": 'application/json' },
                 body: JSON.stringify(productData)

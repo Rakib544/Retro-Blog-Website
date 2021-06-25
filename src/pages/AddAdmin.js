@@ -5,7 +5,7 @@ const AddAdmin = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
-        fetch('http://localhost:5000/api/admin/addAdmin', {
+        fetch('https://limitless-tundra-48536.herokuapp.com/api/admin/addAdmin', {
             method: 'POST',
             headers: { 'content-type': "application/json" },
             body: JSON.stringify(data)
