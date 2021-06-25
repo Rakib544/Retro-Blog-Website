@@ -12,7 +12,7 @@ const Home = () => {
     }, [])
     return (
         <>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-8 my-10 h-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-8 pt-24 pb-10 h-auto">
                 {
                     posts?.map(post => <Card key={post._id} post={post} />)
                 }

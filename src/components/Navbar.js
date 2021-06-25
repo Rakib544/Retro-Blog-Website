@@ -11,7 +11,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="md:col-span-1 md:flex md:justify-between">
+        <nav className="md:col-span-1 md:flex md:justify-between fixed w-full">
             <div className="flex justify-between items-center">
                 <img src="https://i.ibb.co/pr0J6rk/retrolie.png" className="w-24" alt="logo" />
                 <div className="px-4 cursor-pointer md:hidden" onClick={() => setShowDropDown(!showDropdown)}>
@@ -35,7 +35,7 @@ const Navbar = () => {
                         <Link to="/addAdmin" className="mx-4 my-2 uppercase text-xs font-bold">
                             Add Admin
                         </Link>
-                        <Link to="/addAdmin" className="mx-4 my-2 uppercase text-xs font-bold">
+                        <Link to="/manageBlog" className="mx-4 my-2 uppercase text-xs font-bold">
                             Manage Blog
                         </Link>
                     </React.Fragment>
