@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -6,16 +6,26 @@ import { Link } from 'react-router-dom';
 const Register = () => {
     const { register, handleSubmit } = useForm();
     const history = useHistory();
+    const [showSpinner, setShowSpinner] = useState(false)
+    const [showError, setShowError] = useState(false)
 
-    const onSubmit = data => {
-        fetch('https://limitless-tundra-48536.herokuapp.com/api/auth/register', {
+    const onSubmit = async data => {
+        setShowError(false)
+        setShowSpinner(true)
+        const res = await fetch('https://limitless-tundra-48536.herokuapp.com/api/auth/register', {
             method: 'POST',
             headers: { 'content-type': "application/json" },
             body: JSON.stringify(data)
         })
-            .then(res => res.json())
-            .then(data => history.push('/login'))
+        const resData = await res.json();
+        setShowSpinner(false)
+        if (resData._id) {
+            history.push('/login')
+        } else {
+            setShowError(true)
+        }
     };
+
     return (
         <div className="flex justify-center items-center h-screen">
             <div className="w-full md:w-9/12 lg:w-1/2">
@@ -60,7 +70,22 @@ const Register = () => {
                         Register
                     </button>
                 </form>
-                <p className="mt-8 text-center">Already have an account? <Link to="/login">Login Here</Link></p>
+                <p className="mt-8 text-center">Already have an account? <Link to="/login" className="underline">Login Here</Link></p>
+                <div>
+                    {
+                        showSpinner 
+                            ? <>
+                                <img src="https://i.ibb.co/h2WBFxx/spinner.gif" alt="spinner" className="block mx-auto" />
+                                <p className="text-center my-4">Please wait..</p>
+                            </>
+                              : ""
+                    }
+                </div>
+                <p className="text-center my-4 text-red-700">
+                    {
+                        showError ? 'This email is taken by another user. Please try with another email' : ''
+                    }
+                </p>
             </div>
         </div>
     );
