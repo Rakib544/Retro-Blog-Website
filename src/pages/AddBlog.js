@@ -37,9 +37,8 @@ const AddBlog = () => {
     return (
         <React.Fragment>
             <div className="w-full px-2 md:px-8">
-                <h2 className="text-2xl font-bold text-center pb-6 pt-24">Publish Your Blog Here</h2>
                 <form
-                    className="px-2 md:px-10"
+                    className="px-2 md:px-10 pt-24"
                     onSubmit={handleSubmit(onSubmit)}
                 >
                     <button
@@ -47,7 +46,7 @@ const AddBlog = () => {
                     >
                         Publish
                     </button>
-                    {photo && <img src={photo} alt="uploadedPhoto" className="w-full h-80 mt-8 mb-2 object-cover" />}
+                    {photo && <img src={photo} alt="uploadedPhoto" className="w-full h-80 mt-8 mb-2 object-cover px-0 md:px-8" />}
                     <div className="flex items-center">
                         <label htmlFor="fileInput" className="p-2 rounded-full border-2 cursor-pointer border-primary">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
