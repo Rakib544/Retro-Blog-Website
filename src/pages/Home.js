@@ -23,7 +23,7 @@ const Home = () => {
             {
                 showSpinner
                     ? <Preloader />
-                    : <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-2 md:px-8 pt-48 pb-10 h-auto rounded">
+                    : <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-2 md:px-8 pt-44 pb-10 h-auto rounded">
                         {
                             posts?.map(post => <Card key={post._id} post={post} />)
                         }
