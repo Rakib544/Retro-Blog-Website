@@ -12,9 +12,8 @@ const SingleList = ({ post, setNumber, num }) => {
             .then(data => setNumber(num + 1))
     }
     return (
-        <div className="grid grid-cols-5 gap-4 my-4 cursor-pointer items-center shadow-sm">
+        <div className="flex justify-between items-center my-4 cursor-pointer items-center shadow-sm text-xs">
             <img src={post.photo} alt={post.title} className="h-20 w-24" />
-            <h2>{post._id}</h2>
             <h2>{post.title}</h2>
             <h2>{post?.date}</h2>
             <h2 onClick={handleDelete} className="text-right">

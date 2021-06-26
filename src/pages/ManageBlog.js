@@ -25,9 +25,8 @@ const ManageBlog = () => {
                     ? <Preloader />
                     : <>
                         <h2 className="pt-28 text-center text-md font-semibold">Manage Blogs Here</h2>
-                        <div className="grid grid-cols-5 gap-4 bg-gray-100 px-8 py-8 my-4 px-2 md:px-8">
+                        <div className="flex justify-between bg-gray-700 text-white px-8 py-8 my-4 px-2 md:px-8">
                             <h2>Images</h2>
-                            <h2 className="text-center">Id</h2>
                             <h2 className="text-center">Title</h2>
                             <h2 className="text-center">Posted At</h2>
                             <h2>Action</h2>

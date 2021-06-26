@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 const AddAdmin = () => {
     const { register, handleSubmit } = useForm();
+    const [showSpinner, setShowSpinner] = useState(false)
+    const [showMessage, setShowMessage] = useState(false)
 
-    const onSubmit = data => {
-        fetch('https://limitless-tundra-48536.herokuapp.com/api/admin/addAdmin', {
+    const onSubmit = async data => {
+        setShowSpinner(true)
+        await fetch('https://limitless-tundra-48536.herokuapp.com/api/admin/addAdmin', {
             method: 'POST',
             headers: { 'content-type': "application/json" },
             body: JSON.stringify(data)
         })
-            .then(res => res.json())
-            .then(data => console.log(data))
+        setShowSpinner(false)
+        setShowMessage(true)
     };
     return (
         <div className="flex justify-center items-center h-screen">
@@ -37,6 +40,21 @@ const AddAdmin = () => {
                         Add Admin
                     </button>
                 </form>
+                <div>
+                    {
+                        showSpinner
+                            ? <>
+                                <img src="https://i.ibb.co/h2WBFxx/spinner.gif" alt="spinner" className="block mx-auto" />
+                                <p className="text-center my-4">Please wait..</p>
+                            </>
+                            : ""
+                    }
+                </div>
+                <p className="text-center my-4 text-green-700">
+                    {
+                        showMessage ? 'Successfully added as an Admin' : ''
+                    }
+                </p>
             </div>
         </div>
     );
