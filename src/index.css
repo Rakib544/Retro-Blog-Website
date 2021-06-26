@@ -14,3 +14,19 @@
         @apply bg-[#F8F9FA] text-gray-600
     }
 }
+
+/* customizing scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #F8F9FA;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ddd; 
+    border-radius: 10px;
+  }
+  
