@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import { Context } from "../context/Context";
 
 const Login = () => {
@@ -64,6 +65,7 @@ const Login = () => {
                         }
                     </button>
                 </form>
+                <p className="mt-8 text-center">Don't have any account? <Link to="/register" className="underline">Register Here</Link></p>
             </div>
         </div>
     );
