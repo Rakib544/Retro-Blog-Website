@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Context } from '../context/Context';
 
 const Navbar = () => {
@@ -13,7 +13,9 @@ const Navbar = () => {
     return (
         <nav className="md:col-span-1 md:flex md:justify-between fixed w-full px-4 bg-white shadow-sm py-4">
             <div className="flex justify-between items-center">
-                <img src="https://i.ibb.co/pr0J6rk/retrolie.png" className="w-24" alt="logo" />
+                <NavLink to="/">
+                    <img src="https://i.ibb.co/pr0J6rk/retrolie.png" className="w-24" alt="logo" />
+                </NavLink>
                 <div className="px-4 cursor-pointer md:hidden" onClick={() => setShowDropDown(!showDropdown)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -21,47 +23,61 @@ const Navbar = () => {
                 </div>
             </div>
             <div className={`my-2 ${showDropdown ? 'flex flex-col' : 'hidden'} md:block`}>
-                <Link to="/" className="mx-4 my-2 uppercase text-xs font-bold">
+                <NavLink
+                    to="/"
+                    activeClassName="border-b-2 border-grash"
+                    className="mx-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
+                >
                     Home
-                </Link>
+                </NavLink>
                 {user?.isAdmin
                     ? <React.Fragment>
-                        <Link
+                        <NavLink
                             to="/addBlog"
-                            className="mx-4 my-2 uppercase text-xs font-bold hover:border-2 hover:border-red-200"
+                            activeClassName="border-b-2 border-grash"
+                            className="mx-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
                         >
                             Write Blog
-                        </Link>
-                        <Link
+                        </NavLink>
+                        <NavLink
                             to="/addAdmin"
-                            className="mx-4 my-2 uppercase text-xs font-bold"
+                            activeClassName="border-b-2 border-grash"
+                            className="mx-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
                         >
                             Add Admin
-                        </Link>
-                        <Link
+                        </NavLink>
+                        <NavLink
                             to="/manageBlog"
-                            className="mx-4 my-2 uppercase text-xs font-bold"
+                            activeClassName="border-b-2 border-grash"
+                            className="mx-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
                         >
                             Manage Blog
-                        </Link>
-                        <Link
+                        </NavLink>
+                        <NavLink
                             to="/"
-                            className="mx-4 my-2 uppercase text-xs font-bold"
+                            activeClassName="border-b-2 border-grash"
+                            className="mx-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
                             onClick={handleLogOut}
                         >
                             Logout
-                        </Link>
+                        </NavLink>
                     </React.Fragment>
-                    : user?.username ? <Link
-                        to="/"
-                        className="mx-4 my-2 uppercase text-xs font-bold"
-                        onClick={handleLogOut}
-                    >
-                        Logout
-                    </Link>
-                        : <Link to="/login" className=" ml-4 my-2 uppercase text-xs font-bold">
+                    : user?.username
+                        ? <NavLink
+                            to="/"
+                            activeClassName="border-b-2 border-grash"
+                            className="mx-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
+                            onClick={handleLogOut}
+                        >
+                            Logout
+                        </NavLink>
+                        : <NavLink
+                            to="/login"
+                            activeClassName="border-b-2 border-grash"
+                            className=" ml-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
+                        >
                             Log in
-                        </Link>
+                        </NavLink>
                 }
             </div>
         </nav >

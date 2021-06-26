@@ -8,6 +8,7 @@ module.exports = {
         primary: '#1F263E',
         secondary: '#1B2132',
         info: '#F8F9FA',
+        grash: '#13AA52',
       },
       fontFamily: {
         body: ['Poppins']
