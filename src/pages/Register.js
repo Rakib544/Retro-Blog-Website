@@ -16,9 +16,9 @@ const Register = () => {
         .then(data => history.push('/login'))
     };
     return (
-        <React.Fragment>
-            <div className="w-full md:w-9/12 lg:w-1/2 mx-auto">
-                <h2 className="text-2xl font-bold text-center my-6">Register Here</h2>
+        <div className="flex justify-center items-center">
+            <div className="w-full md:w-9/12 lg:w-1/2">
+                <h2 className="text-2xl font-bold text-center pb-6">Register Here</h2>
                 <form 
                     className="px-2 md:px-10"
                     onSubmit={handleSubmit(onSubmit)}
@@ -60,7 +60,7 @@ const Register = () => {
                     </button>
                 </form>
             </div>
-        </React.Fragment>
+        </div>
     );
 };
 

@@ -27,7 +27,7 @@ const Navbar = () => {
                     to="/"
                     exact
                     activeClassName="border-b-2 border-grash"
-                    className="mx-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
+                    className="mx-4 py-2 uppercase inline-block text-xs font-bold hover:border-b-2 hover:border-grash"
                 >
                     Home
                 </NavLink>
@@ -36,27 +36,27 @@ const Navbar = () => {
                         <NavLink
                             to="/addBlog"
                             activeClassName="border-b-2 border-grash"
-                            className="mx-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
+                            className="mx-4 py-2 uppercase inline-block text-xs font-bold hover:border-b-2 hover:border-grash"
                         >
                             Write Blog
                         </NavLink>
                         <NavLink
                             to="/addAdmin"
                             activeClassName="border-b-2 border-grash"
-                            className="mx-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
+                            className="mx-4 py-2 uppercase text-xs inline-block font-bold hover:border-b-2 hover:border-grash"
                         >
                             Add Admin
                         </NavLink>
                         <NavLink
                             to="/manageBlog"
                             activeClassName="border-b-2 border-grash"
-                            className="mx-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
+                            className="mx-4 py-2 uppercase text-xs inline-block font-bold hover:border-b-2 hover:border-grash"
                         >
                             Manage Blog
                         </NavLink>
                         <NavLink
                             to="/"
-                            className="mx-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
+                            className="mx-4 py-2 uppercase text-xs inline-block font-bold hover:border-b-2 hover:border-grash"
                             onClick={handleLogOut}
                         >
                             Logout
@@ -66,14 +66,14 @@ const Navbar = () => {
                         ? <NavLink
                             to="/"
                             activeClassName="border-b-2 border-grash"
-                            className="mx-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
+                            className="mx-4 py-2 uppercase text-xs inline-block font-bold hover:border-b-2 hover:border-grash"
                             onClick={handleLogOut}
                         >
                             Logout
                         </NavLink>
                         : <NavLink
                             to="/login"
-                            className=" ml-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
+                            className=" ml-4 py-2 uppercase text-xs inline-block font-bold hover:border-b-2 hover:border-grash"
                         >
                             Log in
                         </NavLink>

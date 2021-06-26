@@ -23,9 +23,9 @@ const Login = () => {
         }
     };
     return (
-        <React.Fragment>
-            <div className="w-full md:w-9/12 lg:w-1/2 mx-auto">
-                <h2 className="text-2xl font-bold text-center my-6">Login Here</h2>
+        <div className="flex justify-center items-center h-screen">
+            <div className="w-full md:w-9/12 lg:w-1/2">
+                <h2 className="text-2xl font-bold text-center pb-6">Login Here</h2>
                 <form
                     className="px-2 md:px-10"
                     onSubmit={handleSubmit(onSubmit)}
@@ -65,7 +65,7 @@ const Login = () => {
                     </button>
                 </form>
             </div>
-        </React.Fragment>
+        </div>
     );
 };
 

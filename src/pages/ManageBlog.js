@@ -13,8 +13,8 @@ const ManageBlog = () => {
 
     return (
         <>
-            <h2>ALL Blogs</h2>
-            <div className="grid grid-cols-4 bg-gray-100 px-8 my-10">
+            <h2 className="pt-24 text-center text-md font-semibold">Manage Blogs Here</h2>
+            <div className="grid grid-cols-4 bg-gray-100 px-8 py-8 my-8 text-center">
                 <h2>Images</h2>
                 <h2>Id</h2>
                 <h2>Title</h2>
