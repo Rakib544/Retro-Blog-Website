@@ -22,27 +22,32 @@ const AddBlog = () => {
         if (photo !== null) {
             const email = user.email;
             const date = new Date().toDateString();
-            const productData = { photo, ...data, email, date};
+            const productData = { photo, ...data, email, date };
 
             fetch('https://limitless-tundra-48536.herokuapp.com/api/posts', {
                 method: "POST",
                 headers: { "Content-type": 'application/json' },
                 body: JSON.stringify(productData)
             })
-            .then(res => res.json())
-            .then(data => console.log(data))
+                .then(res => res.json())
+                .then(data => console.log(data))
         }
     };
 
     return (
         <React.Fragment>
             <div className="w-full px-2 md:px-8">
-                <h2 className="text-2xl font-bold text-center my-6">Publish Your Blog Here</h2>
+                <h2 className="text-2xl font-bold text-center pb-6 pt-24">Publish Your Blog Here</h2>
                 <form
                     className="px-2 md:px-10"
                     onSubmit={handleSubmit(onSubmit)}
                 >
-                    {photo && <img src={photo} alt="uploadedPhoto" className="w-full h-80 mt-8 mb-2 object-cover"/>}
+                    <button
+                        className="btn mt-5 block ml-auto"
+                    >
+                        Publish
+                    </button>
+                    {photo && <img src={photo} alt="uploadedPhoto" className="w-full h-80 mt-8 mb-2 object-cover" />}
                     <div className="flex items-center">
                         <label htmlFor="fileInput" className="p-2 rounded-full border-2 cursor-pointer border-primary">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -62,7 +67,7 @@ const AddBlog = () => {
                             placeholder="Title"
                             name="title"
                             ref={register({ required: true })}
-                            className="w-full py-3 px-2 text-3xl ring-0 focus:outline-none border-0"
+                            className="w-full py-3 px-2 text-3xl ring-0 focus:outline-none border-0 mb-4 bg-info"
                         />
                     </div>
                     <textarea
@@ -71,13 +76,8 @@ const AddBlog = () => {
                         name="description"
                         rows="12"
                         ref={register({ required: true })}
-                        className="w-full py-3 px-8 ring-0 focus:outline-none border-0 text-md font-semibold tracking-wider"
+                        className="w-full bg-info py-3 px-8 ring-0 focus:outline-none border-0 text-md font-semibold tracking-wider"
                     ></textarea>
-                    <button
-                        className="btn mt-5 block mx-auto"
-                    >
-                        Publish
-                    </button>
                 </form>
             </div>
         </React.Fragment>
