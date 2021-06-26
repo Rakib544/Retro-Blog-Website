@@ -25,6 +25,7 @@ const Navbar = () => {
             <div className={`my-2 ${showDropdown ? 'flex flex-col' : 'hidden'} md:block`}>
                 <NavLink
                     to="/"
+                    exact
                     activeClassName="border-b-2 border-grash"
                     className="mx-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
                 >
@@ -55,7 +56,6 @@ const Navbar = () => {
                         </NavLink>
                         <NavLink
                             to="/"
-                            activeClassName="border-b-2 border-grash"
                             className="mx-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
                             onClick={handleLogOut}
                         >
@@ -73,7 +73,6 @@ const Navbar = () => {
                         </NavLink>
                         : <NavLink
                             to="/login"
-                            activeClassName="border-b-2 border-grash"
                             className=" ml-4 py-2 uppercase text-xs font-bold hover:border-b-2 hover:border-grash"
                         >
                             Log in
